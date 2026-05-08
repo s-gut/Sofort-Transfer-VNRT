@@ -586,7 +586,7 @@
 
   <footer>
     Funktioniert offline · Daten bleiben auf diesem Gerät<br>
-    EPC069-12 · QR-Lib © Kazuhiko Arase (MIT)
+ 
   </footer>
 </div>
 
@@ -2950,7 +2950,7 @@ function saveSettings(s) {
 function getSettings() {
   return loadSettings() || {
     recipient: 'Riedrocker Sports',
-    iban: '',
+    iban: 'DE15100179977938312698',
     prefix: 'VR',
     counter: 1,
   };
@@ -3080,7 +3080,7 @@ function previewOrderNumber() {
   const s = getSettings();
   const year = new Date().getFullYear();
   const num = String(s.counter).padStart(4, '0');
-  return `${s.prefix}-${year}-${num}`;
+  return `${s.prefix}-${num}`;
 }
 
 function consumeOrderNumber() {
@@ -3233,7 +3233,7 @@ function generateOrder() {
   const orderNum = consumeOrderNumber();
   updateOrderNumDisplay();
 
-  // Build reference: "VR-2026-0042 - Max Mustermann" (max 140 chars)
+  // Build reference: "VR-0042 - Max Mustermann" (max 140 chars)
   let reference = `${orderNum} - ${customerName}`;
   if (reference.length > 140) reference = reference.slice(0, 140);
 
